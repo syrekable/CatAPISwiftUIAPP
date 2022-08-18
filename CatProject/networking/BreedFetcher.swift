@@ -25,11 +25,12 @@ class BreedFetcher: ObservableObject {
             self.isLoading = false
             if let data = data {
                 do {
-                    print(String(data: data, encoding: .utf8))
+                    // print(String(data: data, encoding: .utf8))
                     let breeds = try JSONDecoder().decode([Breed].self, from: data)
                     self.breeds = breeds
                 } catch {
                     // TODO: show error in ui
+                    print(error)
                     self.errorMessage = error.localizedDescription
                 }
             }

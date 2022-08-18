@@ -90,5 +90,6 @@ struct Breed: Codable {
         isRare = rarity == 1
         
         image = try values.decode(BreedImage.self, forKey: .image )
+        print(image.url)
     }
 }
