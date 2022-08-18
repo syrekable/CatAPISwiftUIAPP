@@ -19,8 +19,13 @@ class BreedFetcher: ObservableObject {
     
     func fetchAllBreeds() {
         isLoading = true
-        // TODO: handle bad url error
-        let breedsUrl = URL(string: "https://api.thecatapi.com/v1/breeds")!
+        
+        // while this is a perfecly valid code...
+        guard let breedsUrl = URL(string: "https://api.thecatapi.com/v1/breeds") else {
+            errorMessage = APIError.badURL.localizedDescription
+            return
+        }
+        
         let task = URLSession.shared.dataTask(with: breedsUrl) {[unowned self] data, response, error in
             
             if let response = response as? HTTPURLResponse {
