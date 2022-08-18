@@ -8,9 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var breedFetcher: BreedFetcher = BreedFetcher()
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        if breedFetcher.isLoading {
+            LoadingView()
+        } else if breedFetcher.errorMessage != nil {
+            ErrorView()
+        } else {
+            BreedListView()
+        }
     }
 }
 
