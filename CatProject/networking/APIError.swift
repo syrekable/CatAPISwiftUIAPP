@@ -11,7 +11,7 @@ enum APIError: Error, CustomStringConvertible {
     case badURL
     case badResponse(statusCode: Int)
     case url(URLError)
-    case parsing
+    case parsing(DecodingError?)
     case unknown
     
     var localizedDescription: String {
@@ -28,6 +28,18 @@ enum APIError: Error, CustomStringConvertible {
     
     var description: String {
         // debug info
-        ""
+        switch self {
+        case .badURL:
+            return "invalid url"
+        case .parsing(let error):
+            return "parsing error \(error?.localizedDescription ?? "")"
+        case .badResponse(let statusCode):
+            return "request failed with status code \(statusCode)"
+        case .url(let error):
+            return error.localizedDescription
+        case .unknown:
+            return "something bizzare failed"
+            
+        }
     }
 }
