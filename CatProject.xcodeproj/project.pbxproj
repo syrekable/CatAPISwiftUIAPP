@@ -21,6 +21,7 @@
 		F1B7F1CD28AE748500EAEC63 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B7F1CC28AE748500EAEC63 /* LoadingView.swift */; };
 		F1B7F1CF28AE749400EAEC63 /* BreedListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B7F1CE28AE749400EAEC63 /* BreedListView.swift */; };
 		F1B7F1D128AE848000EAEC63 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B7F1D028AE848000EAEC63 /* APIError.swift */; };
+		F1B7F1D328AE96FB00EAEC63 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B7F1D228AE96FB00EAEC63 /* APIService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		F1B7F1CC28AE748500EAEC63 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		F1B7F1CE28AE749400EAEC63 /* BreedListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedListView.swift; sourceTree = "<group>"; };
 		F1B7F1D028AE848000EAEC63 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		F1B7F1D228AE96FB00EAEC63 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 			children = (
 				F1B7F1C828AE6FC000EAEC63 /* BreedFetcher.swift */,
 				F1B7F1D028AE848000EAEC63 /* APIError.swift */,
+				F1B7F1D228AE96FB00EAEC63 /* APIService.swift */,
 			);
 			path = networking;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				F1B7F19A28AE5AB500EAEC63 /* ContentView.swift in Sources */,
 				F1B7F1C928AE6FC000EAEC63 /* BreedFetcher.swift in Sources */,
 				F1B7F1CD28AE748500EAEC63 /* LoadingView.swift in Sources */,
+				F1B7F1D328AE96FB00EAEC63 /* APIService.swift in Sources */,
 				F1B7F19828AE5AB500EAEC63 /* CatProjectApp.swift in Sources */,
 				F1B7F1CF28AE749400EAEC63 /* BreedListView.swift in Sources */,
 				F1B7F1D128AE848000EAEC63 /* APIError.swift in Sources */,
