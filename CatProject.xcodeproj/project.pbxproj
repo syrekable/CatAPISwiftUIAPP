@@ -14,6 +14,7 @@
 		F1B7F1A928AE5AB600EAEC63 /* CatProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B7F1A828AE5AB600EAEC63 /* CatProjectTests.swift */; };
 		F1B7F1B328AE5AB600EAEC63 /* CatProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B7F1B228AE5AB600EAEC63 /* CatProjectUITests.swift */; };
 		F1B7F1B528AE5AB600EAEC63 /* CatProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B7F1B428AE5AB600EAEC63 /* CatProjectUITestsLaunchTests.swift */; };
+		F1B7F1C528AE5B6800EAEC63 /* Breed.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B7F1C428AE5B6800EAEC63 /* Breed.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		F1B7F1AE28AE5AB600EAEC63 /* CatProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CatProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1B7F1B228AE5AB600EAEC63 /* CatProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatProjectUITests.swift; sourceTree = "<group>"; };
 		F1B7F1B428AE5AB600EAEC63 /* CatProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F1B7F1C428AE5B6800EAEC63 /* Breed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breed.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,9 @@
 		F1B7F19628AE5AB500EAEC63 /* CatProject */ = {
 			isa = PBXGroup;
 			children = (
+				F1B7F1C328AE5B4900EAEC63 /* networking */,
+				F1B7F1C228AE5B4300EAEC63 /* view */,
+				F1B7F1C128AE5B3C00EAEC63 /* model */,
 				F1B7F19728AE5AB500EAEC63 /* CatProjectApp.swift */,
 				F1B7F19928AE5AB500EAEC63 /* ContentView.swift */,
 				F1B7F19B28AE5AB600EAEC63 /* Assets.xcassets */,
@@ -125,6 +130,28 @@
 				F1B7F1B428AE5AB600EAEC63 /* CatProjectUITestsLaunchTests.swift */,
 			);
 			path = CatProjectUITests;
+			sourceTree = "<group>";
+		};
+		F1B7F1C128AE5B3C00EAEC63 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				F1B7F1C428AE5B6800EAEC63 /* Breed.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		F1B7F1C228AE5B4300EAEC63 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		F1B7F1C328AE5B4900EAEC63 /* networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,6 +284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1B7F1C528AE5B6800EAEC63 /* Breed.swift in Sources */,
 				F1B7F19A28AE5AB500EAEC63 /* ContentView.swift in Sources */,
 				F1B7F19828AE5AB500EAEC63 /* CatProjectApp.swift in Sources */,
 			);
