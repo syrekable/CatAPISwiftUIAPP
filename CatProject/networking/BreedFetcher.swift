@@ -20,10 +20,7 @@ class BreedFetcher: ObservableObject {
     func fetchAllBreeds() {
         isLoading = true
         // TODO: handle bad url error
-        // for some unknown reason, the objects are magically correct
-        // if you supply the limit parameter.
-        // Nothing changes in structure of anything... Jesus.
-        let breedsUrl = URL(string: "https://api.thecatapi.com/v1/breeds?limit=9")!
+        let breedsUrl = URL(string: "https://api.thecatapi.com/v1/breeds")!
         let task = URLSession.shared.dataTask(with: breedsUrl) {[unowned self] data, response, error in
             DispatchQueue.main.async {
                 self.isLoading = false
@@ -35,7 +32,6 @@ class BreedFetcher: ObservableObject {
                         self.breeds = breeds
                     }                   
                 } catch {
-                    // TODO: show error in ui
                     self.errorMessage = error.localizedDescription
                 }
             }

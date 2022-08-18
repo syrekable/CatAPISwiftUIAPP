@@ -9,5 +9,8 @@ import Foundation
 
 struct BreedImage: Codable {
     // TODO: how to store it as an URL?
-    let url: String
+    let id: String?
+    let url: String?
+    let width: Int?
+    let height: Int?
 }

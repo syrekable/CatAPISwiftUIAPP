@@ -62,7 +62,7 @@ struct Breed: Codable {
     let affectionLevel: Int
     let isRare: Bool
     let breedDescription: String
-    let image: BreedImage
+    let image: BreedImage?
     
     enum CodingKeys: String, CodingKey {
         case id, name
@@ -89,6 +89,6 @@ struct Breed: Codable {
         // just like that; simple logical test
         isRare = rarity == 1
         
-        image = try values.decode(BreedImage.self, forKey: .image )
+        image = try values.decodeIfPresent(BreedImage.self, forKey: .image)
     }
 }
