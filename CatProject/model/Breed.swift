@@ -89,11 +89,6 @@ struct Breed: Codable {
         // just like that; simple logical test
         isRare = rarity == 1
         
-        image = try values.decode(BreedImage.self, forKey: .image)
+        image = try values.decode(BreedImage.self, forKey: .image )
     }
-}
-
-struct BreedImage: Codable {
-    // TODO: how to store it as an URL?
-    let url: String
 }
