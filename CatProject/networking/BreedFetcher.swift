@@ -22,6 +22,11 @@ class BreedFetcher: ObservableObject {
         // TODO: handle bad url error
         let breedsUrl = URL(string: "https://api.thecatapi.com/v1/breeds")!
         let task = URLSession.shared.dataTask(with: breedsUrl) {[unowned self] data, response, error in
+            
+            if let response = response as? HTTPURLResponse {
+                !(200...299).contains(response.statusCode)
+                // TODO: throw error
+            }
             DispatchQueue.main.async {
                 self.isLoading = false
             }
