@@ -9,23 +9,30 @@ import Foundation
 
 class BreedFetcher: ObservableObject {
     @Published var breeds = [Breed]()
+    // If I'm not loading, either something went wrong or fetching gone succesfully
+    @Published var isLoading: Bool = false
+    @Published var errorMessage: String?
     
     init() {
         
     }
     
     func fetchAllBreeds() {
+        isLoading = true
         // TODO: handle bad url error
         let breedsUrl = URL(string: "https://api.thecatapi.com/v1/breeds")!
-        let task = URLSession.shared.dataTask(with: breedsUrl) { data, response, error in
+        let task = URLSession.shared.dataTask(with: breedsUrl) {[unowned self] data, response, error in
+            self.isLoading = false
             if let data = data {
                 do {
-                    self.breeds = try JSONDecoder().decode([Breed].self, from: data)
+                    let breeds = try JSONDecoder().decode([Breed].self, from: data)
+                    self.breeds = breeds
                 } catch {
                     // TODO: show error in ui
-                    print(error.localizedDescription)
+                    self.errorMessage = error.localizedDescription
                 }
             }
         }
+        task.resume()
     }
 }
