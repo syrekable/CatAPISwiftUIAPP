@@ -15,7 +15,7 @@ struct ContentView: View {
         } else if breedFetcher.errorMessage != nil {
             ErrorView(breedFetcher: breedFetcher)
         } else {
-            BreedListView()
+            BreedListView(breeds: breedFetcher.breeds)
         }
     }
 }

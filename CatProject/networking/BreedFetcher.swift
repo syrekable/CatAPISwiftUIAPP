@@ -14,7 +14,7 @@ class BreedFetcher: ObservableObject {
     @Published var errorMessage: String?
     
     init() {
-        
+        fetchAllBreeds()
     }
     
     func fetchAllBreeds() {
@@ -25,6 +25,7 @@ class BreedFetcher: ObservableObject {
             self.isLoading = false
             if let data = data {
                 do {
+                    print(String(data: data, encoding: .utf8))
                     let breeds = try JSONDecoder().decode([Breed].self, from: data)
                     self.breeds = breeds
                 } catch {
