@@ -7,10 +7,20 @@
 
 import Foundation
 
-enum APIError: Error {
+enum APIError: Error, CustomStringConvertible {
     case badURL
     case response(statusCode: Int)
     case url(URLError)
     case parsing
     case unknown
+    
+    var localizedDescription: String {
+        // feedback for user
+        ""
+    }
+    
+    var description: String {
+        // debug info
+        ""
+    }
 }
