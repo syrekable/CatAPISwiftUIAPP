@@ -16,6 +16,7 @@
 		F1B7F1B528AE5AB600EAEC63 /* CatProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B7F1B428AE5AB600EAEC63 /* CatProjectUITestsLaunchTests.swift */; };
 		F1B7F1C528AE5B6800EAEC63 /* Breed.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B7F1C428AE5B6800EAEC63 /* Breed.swift */; };
 		F1B7F1C728AE6F7600EAEC63 /* BreedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B7F1C628AE6F7600EAEC63 /* BreedImage.swift */; };
+		F1B7F1C928AE6FC000EAEC63 /* BreedFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B7F1C828AE6FC000EAEC63 /* BreedFetcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		F1B7F1B428AE5AB600EAEC63 /* CatProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F1B7F1C428AE5B6800EAEC63 /* Breed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breed.swift; sourceTree = "<group>"; };
 		F1B7F1C628AE6F7600EAEC63 /* BreedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedImage.swift; sourceTree = "<group>"; };
+		F1B7F1C828AE6FC000EAEC63 /* BreedFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedFetcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 		F1B7F1C328AE5B4900EAEC63 /* networking */ = {
 			isa = PBXGroup;
 			children = (
+				F1B7F1C828AE6FC000EAEC63 /* BreedFetcher.swift */,
 			);
 			path = networking;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				F1B7F1C728AE6F7600EAEC63 /* BreedImage.swift in Sources */,
 				F1B7F1C528AE5B6800EAEC63 /* Breed.swift in Sources */,
 				F1B7F19A28AE5AB500EAEC63 /* ContentView.swift in Sources */,
+				F1B7F1C928AE6FC000EAEC63 /* BreedFetcher.swift in Sources */,
 				F1B7F19828AE5AB500EAEC63 /* CatProjectApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
