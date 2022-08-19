@@ -1,4 +1,4 @@
-# CatAPISwiftUIAPP
+# CatAPISwiftUIApp
 
 A simple, yet all-inclusive app for looking at affectionate cats, thanks for the courtesy of [The Cat API](https://thecatapi.com/).
 
