@@ -10,17 +10,13 @@ import SwiftUI
 struct BreedDetails: View {
     let breed: Breed
     var body: some View {
-        VStack {
-            VStack {
-                HStack {
-                    Text(breed.name)
+        VStack(alignment: .leading) {
+            VStack(alignment: .leading) {
+                Text(breed.name)
                         .font(.title)
-                    Spacer()
-                }
                 Text(breed.temperament)
                     .font(.system(size: 15))
             }.padding([.vertical], 5)
-            
             Text(breed.breedDescription)
         }
         .padding()
