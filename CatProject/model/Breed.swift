@@ -56,7 +56,7 @@ import Foundation
    }
  }
  */
-struct Breed: Codable {
+struct Breed: Codable, Identifiable {
     let id: String
     let name: String
     let affectionLevel: Int
@@ -103,13 +103,19 @@ struct Breed: Codable {
 }
 
 extension Breed {
+    /// Sample cats, with description of different lengths.
     static var sampleData: [Breed] {
         return [
             Breed(id: "abys",
                   name: "Abyssinian",
                   affectionLevel: 5,
                   isRare: false,
-                  breedDescription: "The Abyssinian is easy to care for, and a joy to have in your home. They’re affectionate cats and love both people and other animals.")
+                  breedDescription: "The Abyssinian is easy to care for, and a joy to have in your home. They’re affectionate cats and love both people and other animals."),
+            Breed(id: "aege",
+                  name: "Aegean",
+                  affectionLevel: 4,
+                  isRare: false,
+                  breedDescription: "Native to the Greek islands known as the Cyclades in the Aegean Sea, these are natural cats, meaning they developed without humans getting involved in their breeding. As a breed, Aegean Cats are rare, although they are numerous on their home islands. They are generally friendly toward people and can be excellent cats for families with children.")
         ]
     }
 }

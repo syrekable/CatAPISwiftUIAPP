@@ -10,12 +10,16 @@ import SwiftUI
 struct BreedListView: View {
     let breeds: [Breed]
     var body: some View {
-        Text("Showing \(breeds.count) breeds.")
+        List {
+            ForEach(breeds) { breed in
+                Text(breed.name)
+            }
+        }
     }
 }
 
 struct BreedListView_Previews: PreviewProvider {
     static var previews: some View {
-        BreedListView(breeds: [Breed]())
+        BreedListView(breeds: BreedFetcher.successState().breeds)
     }
 }
