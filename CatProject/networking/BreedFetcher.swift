@@ -49,4 +49,11 @@ class BreedFetcher: ObservableObject {
         fetcher.errorMessage = APIError.url(URLError.init(.notConnectedToInternet)).localizedDescription
         return fetcher
     }
+    
+    static func successState() -> BreedFetcher {
+        let fetcher = BreedFetcher()
+        // TODO: populate the .breeds with actual cats
+        fetcher.breeds = Breed.sampleData
+        return fetcher
+    }
 }

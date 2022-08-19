@@ -91,4 +91,25 @@ struct Breed: Codable {
         
         image = try values.decodeIfPresent(BreedImage.self, forKey: .image)
     }
+    
+    init(id: String, name: String, affectionLevel: Int, isRare: Bool, breedDescription: String, image: BreedImage? = nil) {
+        self.id = id
+        self.name = name
+        self.affectionLevel = affectionLevel
+        self.isRare = isRare
+        self.breedDescription = breedDescription
+        self.image = image
+    }
+}
+
+extension Breed {
+    static var sampleData: [Breed] {
+        return [
+            Breed(id: "abys",
+                  name: "Abyssinian",
+                  affectionLevel: 5,
+                  isRare: false,
+                  breedDescription: "The Abyssinian is easy to care for, and a joy to have in your home. They’re affectionate cats and love both people and other animals.")
+        ]
+    }
 }
