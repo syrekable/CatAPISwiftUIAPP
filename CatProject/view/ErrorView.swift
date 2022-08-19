@@ -10,8 +10,11 @@ import SwiftUI
 struct ErrorView: View {
     @ObservedObject var breedFetcher: BreedFetcher
     var body: some View {
-        Text("Error: \(breedFetcher.errorMessage!)")
-            .padding()
+        VStack {
+            Text("😿")
+            Text(breedFetcher.errorMessage ?? "")
+                .padding()
+        }
     }
 }
 

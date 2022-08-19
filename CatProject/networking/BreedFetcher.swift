@@ -41,6 +41,12 @@ class BreedFetcher: ObservableObject {
                 }
             }
         }
-        
+    }
+    
+    // MARK: - preview helpers
+    static func errorState() -> BreedFetcher {
+        let fetcher = BreedFetcher()
+        fetcher.errorMessage = APIError.url(URLError.init(.notConnectedToInternet)).localizedDescription
+        return fetcher
     }
 }
