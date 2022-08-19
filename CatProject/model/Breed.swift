@@ -63,13 +63,13 @@ struct Breed: Codable, Identifiable {
     let isRare: Bool
     let breedDescription: String
     let image: BreedImage?
+    let temperament: [String]
     
     enum CodingKeys: String, CodingKey {
-        case id, name
+        case id, name, image, temperament
         case breedDescription = "description"
         case affectionLevel = "affection_level"
         case isRare = "rare"
-        case image
     }
     
     // custom initializer to deal with API that does not really
@@ -90,15 +90,20 @@ struct Breed: Codable, Identifiable {
         isRare = rarity == 1
         
         image = try values.decodeIfPresent(BreedImage.self, forKey: .image)
+        
+        var _temperament = try values.decode(String.self, forKey: .temperament)
+        _temperament.removeAll(where: { $0 == " " })
+        temperament = _temperament.split(separator: ",").map { String($0) }
     }
     
-    init(id: String, name: String, affectionLevel: Int, isRare: Bool, breedDescription: String, image: BreedImage? = nil) {
+    init(id: String, name: String, affectionLevel: Int, isRare: Bool, breedDescription: String, image: BreedImage? = nil, temperament: [String]) {
         self.id = id
         self.name = name
         self.affectionLevel = affectionLevel
         self.isRare = isRare
         self.breedDescription = breedDescription
         self.image = image
+        self.temperament = temperament
     }
 }
 
@@ -110,12 +115,14 @@ extension Breed {
                   name: "Abyssinian",
                   affectionLevel: 5,
                   isRare: false,
-                  breedDescription: "The Abyssinian is easy to care for, and a joy to have in your home. They’re affectionate cats and love both people and other animals."),
+                  breedDescription: "The Abyssinian is easy to care for, and a joy to have in your home. They’re affectionate cats and love both people and other animals.",
+                  temperament: ["Active", "Energetic", "Independent", "Intelligent", "Gentle"]),
             Breed(id: "aege",
                   name: "Aegean",
                   affectionLevel: 4,
                   isRare: false,
-                  breedDescription: "Native to the Greek islands known as the Cyclades in the Aegean Sea, these are natural cats, meaning they developed without humans getting involved in their breeding. As a breed, Aegean Cats are rare, although they are numerous on their home islands. They are generally friendly toward people and can be excellent cats for families with children.")
+                  breedDescription: "Native to the Greek islands known as the Cyclades in the Aegean Sea, these are natural cats, meaning they developed without humans getting involved in their breeding. As a breed, Aegean Cats are rare, although they are numerous on their home islands. They are generally friendly toward people and can be excellent cats for families with children.",
+                 temperament: ["Affectionate", "Social", "Intelligent", "Playful", "Active"])
         ]
     }
 }
