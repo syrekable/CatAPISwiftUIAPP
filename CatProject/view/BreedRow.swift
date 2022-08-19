@@ -19,13 +19,30 @@ struct BreedRow: View {
                             .resizable()
                             .frame(width: imageSize, height: imageSize)
                     } else if phase.error != nil {
-                        Color.red.frame(width: imageSize, height: imageSize) // Indicates an error.
+                        ZStack {
+                            Color.red
+                            VStack(spacing: 5) {
+                                Text("😿")
+                                Text("An error ocurred")
+                                    .foregroundColor(.white)
+                            }
+                        }
+                            .frame(width: imageSize, height: imageSize) // Indicates an error.
                     } else {
-                        ProgressView() // Acts as a placeholder.
+                        ProgressView()
+                            .frame(width: imageSize, height: imageSize)// Acts as a placeholder.
                     }
                 }
             } else {
-                Color.gray.frame(width: imageSize, height: imageSize)
+                ZStack {
+                    Color.gray
+                    VStack(spacing: 5) {
+                        Text("🐈")
+                        Text("No image")
+                            .foregroundColor(.white)
+                    }
+                }
+                    .frame(width: imageSize, height: imageSize)
             }
             VStack(alignment: .leading, spacing: 5) {
                 Text(breed.name)
@@ -39,5 +56,6 @@ struct BreedRow: View {
 struct BreedRow_Previews: PreviewProvider {
     static var previews: some View {
         BreedRow(breed: Breed.sampleData[0])
+            .previewLayout(.fixed(width: 400, height: 200))
     }
 }
