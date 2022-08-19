@@ -19,33 +19,28 @@ class BreedFetcher: ObservableObject {
     
     func fetchAllBreeds() {
         isLoading = true
+        errorMessage = nil
         
-        // while this is a perfecly valid code...
-        guard let breedsUrl = URL(string: "https://api.thecatapi.com/v1/breeds") else {
-            errorMessage = APIError.badURL.localizedDescription
-            return
-        }
+        // ... code using an external network service layer
+        // is more compact: readable and reusable!
+        let service = APIService()
+        let breedsUrl = URL(string: "https://api.thecatapi.com/v1/breeds")
         
-        let task = URLSession.shared.dataTask(with: breedsUrl) {[unowned self] data, response, error in
-            
-            if let response = response as? HTTPURLResponse {
-                !(200...299).contains(response.statusCode)
-                // TODO: throw error
-            }
+        service.fetchBreeds(url: breedsUrl) { [unowned self] result in
             DispatchQueue.main.async {
                 self.isLoading = false
             }
-            if let data = data {
-                do {
-                    let breeds = try JSONDecoder().decode([Breed].self, from: data)
-                    DispatchQueue.main.async {
-                        self.breeds = breeds
-                    }                   
-                } catch {
-                    self.errorMessage = error.localizedDescription
+            
+            switch result {
+            case .failure(let error):
+                self.errorMessage = error.localizedDescription
+                print(error)
+            case .success(let breeds):
+                DispatchQueue.main.async {
+                    self.breeds = breeds
                 }
             }
         }
-        task.resume()
+        
     }
 }
