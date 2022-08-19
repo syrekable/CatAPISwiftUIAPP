@@ -9,7 +9,14 @@ import SwiftUI
 
 struct LoadingView: View {
     var body: some View {
-        Text("Loading...")
+        VStack {
+            Text("🐈")
+                .font(.system(size: 80))
+            Text("Calling the kittens...")
+                .foregroundColor(.gray)
+            ProgressView()
+        }
+        .padding()
     }
 }
 
