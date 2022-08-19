@@ -17,13 +17,8 @@ struct BreedDetails: View {
                         .font(.title)
                     Spacer()
                 }
-                HStack {
-                    ForEach(breed.temperament, id: \.self) { trait in
-                        Text(trait)
-                            .font(.system(size: 11))
-                    }
-                    Spacer()
-                }
+                Text(breed.temperament)
+                    .font(.system(size: 15))
             }.padding([.vertical], 5)
             
             Text(breed.breedDescription)

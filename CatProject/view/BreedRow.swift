@@ -11,23 +11,12 @@ struct BreedRow: View {
     let breed: Breed
     var body: some View {
         HStack {
-            // TODO: image
-            Spacer(minLength: 75)
-            VStack {
-                HStack {
-                    Text(breed.name)
-                    Spacer()
-                }
-                // TODO: frame it if overflowing?
-                HStack {
-                    ForEach(breed.temperament, id: \.self) { trait in
-                        Text(trait)
-                            .font(.system(size: 11))
-                    }
-                }
+            VStack(alignment: .leading, spacing: 5) {
+                Text(breed.name)
+                Text(breed.temperament)
+                    .font(.system(size: 15))
             }
         }
-        .padding()
     }
 }
 
