@@ -67,6 +67,8 @@ struct BreedDetails: View {
                 }
             }
             .padding()
+            .navigationBarTitleDisplayMode(.inline)
+            Spacer()
         }
     }
 }

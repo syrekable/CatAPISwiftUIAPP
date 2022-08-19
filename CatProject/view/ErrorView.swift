@@ -14,12 +14,15 @@ struct ErrorView: View {
             Text("😿")
             Text(breedFetcher.errorMessage ?? "")
                 .padding()
+            Button("Try again") {
+                breedFetcher.fetchAllBreeds()
+            }
         }
     }
 }
 
 struct ErrorView_Previews: PreviewProvider {
     static var previews: some View {
-        ErrorView(breedFetcher: BreedFetcher())
+        ErrorView(breedFetcher: BreedFetcher.errorState())
     }
 }
