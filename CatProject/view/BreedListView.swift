@@ -10,9 +10,15 @@ import SwiftUI
 struct BreedListView: View {
     let breeds: [Breed]
     var body: some View {
-        List {
-            ForEach(breeds) { breed in
-                Text(breed.name)
+        NavigationView {
+            List {
+                ForEach(breeds) { breed in
+                    NavigationLink {
+                        BreedDetails(breed: breed)
+                    } label: {
+                        BreedRow(breed: breed)
+                    }
+                }
             }
         }
     }

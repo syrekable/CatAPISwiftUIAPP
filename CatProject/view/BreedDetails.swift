@@ -11,13 +11,21 @@ struct BreedDetails: View {
     let breed: Breed
     var body: some View {
         VStack {
-            // TODO: image
-            HStack {
-                Text(breed.name)
-                    .font(.title)
-                Spacer()
-            }
-            .padding([.vertical], 5)
+            VStack {
+                HStack {
+                    Text(breed.name)
+                        .font(.title)
+                    Spacer()
+                }
+                HStack {
+                    ForEach(breed.temperament, id: \.self) { trait in
+                        Text(trait)
+                            .font(.system(size: 11))
+                    }
+                    Spacer()
+                }
+            }.padding([.vertical], 5)
+            
             Text(breed.breedDescription)
         }
         .padding()
