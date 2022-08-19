@@ -63,7 +63,7 @@ struct Breed: Codable, Identifiable {
     let isRare: Bool
     let breedDescription: String
     let image: BreedImage?
-    let temperament: [String]
+    let temperament: String
     
     enum CodingKeys: String, CodingKey {
         case id, name, image, temperament
@@ -91,12 +91,10 @@ struct Breed: Codable, Identifiable {
         
         image = try values.decodeIfPresent(BreedImage.self, forKey: .image)
         
-        var _temperament = try values.decode(String.self, forKey: .temperament)
-        _temperament.removeAll(where: { $0 == " " })
-        temperament = _temperament.split(separator: ",").map { String($0) }
+        temperament = try values.decode(String.self, forKey: .temperament)
     }
     
-    init(id: String, name: String, affectionLevel: Int, isRare: Bool, breedDescription: String, image: BreedImage? = nil, temperament: [String]) {
+    init(id: String, name: String, affectionLevel: Int, isRare: Bool, breedDescription: String, image: BreedImage? = nil, temperament: String) {
         self.id = id
         self.name = name
         self.affectionLevel = affectionLevel
@@ -116,13 +114,13 @@ extension Breed {
                   affectionLevel: 5,
                   isRare: false,
                   breedDescription: "The Abyssinian is easy to care for, and a joy to have in your home. They’re affectionate cats and love both people and other animals.",
-                  temperament: ["Active", "Energetic", "Independent", "Intelligent", "Gentle"]),
+                  temperament: ["Active", "Energetic", "Independent", "Intelligent", "Gentle"].joined(separator: ", ")),
             Breed(id: "aege",
                   name: "Aegean",
                   affectionLevel: 4,
                   isRare: false,
                   breedDescription: "Native to the Greek islands known as the Cyclades in the Aegean Sea, these are natural cats, meaning they developed without humans getting involved in their breeding. As a breed, Aegean Cats are rare, although they are numerous on their home islands. They are generally friendly toward people and can be excellent cats for families with children.",
-                 temperament: ["Affectionate", "Social", "Intelligent", "Playful", "Active"])
+                  temperament: ["Affectionate", "Social", "Intelligent", "Playful", "Active"].joined(separator: ", "))
         ]
     }
 }

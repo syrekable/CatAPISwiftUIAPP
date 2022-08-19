@@ -20,6 +20,8 @@ struct BreedListView: View {
                     }
                 }
             }
+                .listStyle(PlainListStyle())
+                .navigationTitle("Find the loveliest cat")
         }
     }
 }
